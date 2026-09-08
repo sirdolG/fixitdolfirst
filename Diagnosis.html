@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FixItFirst | Diagnose a Problem</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+</head>
+
+
+<body class="diagnosis-page">
+
+
+
+<header class="site-header">
+
+    <div class="top-strip">
+
+        <div class="container top-strip-inner">
+
+            <span>✓ Honest repair guidance</span>
+            <span>✓ Safety comes first</span>
+            <span>✓ Know the problem before you spend</span>
+
+        </div>
+
+    </div>
+
+
+    <nav class="navbar container">
+
+        <a href="index.html" class="logo">
+            FIX<span>IT</span>FIRST
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="diagnosis.html" class="active">
+                Diagnose
+            </a>
+
+            <a href="emergency.html">
+                Emergency
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+        <a href="emergency.html" class="nav-button emergency-nav">
+            Emergency
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+
+<section class="diagnosis-header">
+
+    <div class="container">
+
+        <p class="section-label">
+            FIXITFIRST DIAGNOSIS
+        </p>
+
+        <h1>
+            Tell us what's wrong.
+        </h1>
+
+        <p>
+            Give us the symptoms and we'll narrow down the most
+            likely cause and show you what to do next.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- EMERGENCY NOTICE -->
+
+<section class="container">
+
+    <div class="emergency-alert">
+
+        <div class="emergency-alert-icon">
+            ⚠
+        </div>
+
+        <div>
+
+            <strong>
+                Is there immediate danger?
+            </strong>
+
+            <p>
+                For fire, smoke, major flooding, exposed electrical
+                wiring or other dangerous situations, stop the diagnosis.
+            </p>
+
+        </div>
+
+        <a
+            href="emergency.html"
+            class="emergency-button">
+
+            Emergency Help →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- DIAGNOSIS FORM -->
+
+<section class="diagnosis-layout container">
+
+
+    <div class="diagnosis-form-panel">
+
+        <div class="form-heading">
+
+            <span class="form-number">
+                01
+            </span>
+
+            <div>
+
+                <h2>
+                    Describe the problem
+                </h2>
+
+                <p>
+                    Be specific. The more symptoms you give us,
+                    the better the diagnosis.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <form id="diagnosisForm">
+
+
+            <label for="category">
+                Problem category
+            </label>
+
+
+            <select id="category" required>
+
+                <option value="">
+                    Select a category
+                </option>
+
+                <option value="doors">
+                    Doors & Windows
+                </option>
+
+                <option value="plumbing">
+                    Plumbing
+                </option>
+
+                <option value="electrical">
+                    Electrical
+                </option>
+
+                <option value="appliance">
+                    Appliances
+                </option>
+
+                <option value="home">
+                    Home / Building
+                </option>
+
+            </select>
+
+
+            <label for="problem">
+                What is happening?
+            </label>
+
+
+            <textarea
+                id="problem"
+                required
+                placeholder="Example: My bedroom door makes a loud creaking noise when I open it. It started about a week ago and the door still opens normally."></textarea>
+
+
+            <div class="example-box">
+
+                <strong>
+                    Good descriptions include:
+                </strong>
+
+                <ul>
+
+                    <li>
+                        What happens?
+                    </li>
+
+                    <li>
+                        Where does it happen?
+                    </li>
+
+                    <li>
+                        When did it start?
+                    </li>
+
+                    <li>
+                        Is there a sound, smell, leak or visible damage?
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="diagnose-button">
+
+                Diagnose Problem
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- RESULT -->
+
+    <div
+        id="diagnosisResult"
+        class="result-panel">
+
+
+        <div class="result-top">
+
+            <span class="result-label">
+                DIAGNOSIS
+            </span>
+
+            <span
+                id="resultStatus"
+                class="result-status">
+
+                READY
+
+            </span>
+
+        </div>
+
+
+        <h2 id="resultTitle">
+            Your diagnosis will appear here.
+        </h2>
+
+
+        <p id="resultDescription">
+            Enter a problem on the left to receive a diagnosis.
+        </p>
+
+
+        <div class="diagnosis-stats">
+
+
+            <div>
+                <span>Confidence</span>
+                <strong id="confidence">—</strong>
+            </div>
+
+
+            <div>
+                <span>Difficulty</span>
+                <strong id="difficulty">—</strong>
+            </div>
+
+
+            <div>
+                <span>Time</span>
+                <strong id="repairTime">—</strong>
+            </div>
+
+
+            <div>
+                <span>Typical cost</span>
+                <strong id="cost">—</strong>
+            </div>
+
+
+        </div>
+
+
+        <div class="repair-section">
+
+            <h3>
+                Recommended repair
+            </h3>
+
+            <ol id="fixSteps">
+
+                <li>
+                    Your repair steps will appear here.
+                </li>
+
+            </ol>
+
+        </div>
+
+
+        <div
+            id="safetyWarning"
+            class="result-safety">
+
+        </div>
+
+
+        <div class="result-disclaimer">
+
+            Diagnosis is based on the symptoms provided and is
+            intended as general guidance, not a professional inspection.
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    <div class="container footer-grid">
+
+        <div>
+
+            <div class="logo footer-logo">
+                FIX<span>IT</span>FIRST
+            </div>
+
+            <p>
+                Practical home repair guidance for everyday problems.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>Explore</h4>
+
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="emergency.html">Emergency</a>
+            <a href="contact.html">Contact</a>
+
+        </div>
+
+
+        <div>
+
+            <h4>Need help?</h4>
+
+            <a href="emergency.html">
+                Emergency information
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+        © 2026 FixItFirst. All rights reserved.
+    </div>
+
+</footer>
+<div class="emergency-tab" id="emergencyTab">
+    <button class="emergency-tab-button" onclick="toggleEmergency()">
+        <span>🚨</span>
+        <span>EMERGENCY</span>
+    </button>
+
+    <div class="emergencyncontent">
+        <button class="emergency-close" onclick="toggleEmergency()">×</button>
+
+        <span class="emergency-small">SAFETY FIRST</span>
+
+        <h3>Stop and stay safe.</h3>
+
+        <p>
+            If the situation is dangerous, don't attempt a DIY repair.
+            Leave the area and get professional help.
+        </p>
+    </div>
+</div>
+
+
+</body>
+</html>
