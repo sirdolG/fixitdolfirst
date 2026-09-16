@@ -626,7 +626,7 @@ select {
 ========================================================= */
 
 .diagnosis-header {
-    background: var(--navy);
+    background-color: var(--navy);
     color: white;
     padding: 65px 0;
     border-bottom: 5px solid var(--orange);
@@ -1214,121 +1214,6 @@ footer {
    MOVING WORKSHOP LINE
 ========================================================= */
 
-body::after {
-    content: "";
-
-    position: fixed;
-
-    left: 0;
-
-    top: 36px;
-
-    width: 100%;
-
-    height: 1px;
-
-    pointer-events: none;
-
-    z-index: 2;
-
-    opacity: .22;
-
-    background:
-        repeating-linear-gradient(
-            90deg,
-            transparent 0,
-            transparent 18px,
-            var(--orange) 18px,
-            var(--orange) 38px,
-            transparent 38px,
-            transparent 60px
-        );
-
-    animation: workshopLineMove 8s linear infinite;
-}
-
-@keyframes workshopLineMove {
-
-    from {
-        background-position: 0 0;
-    }
-
-    to {
-        background-position: 160px 0;
-    }
-}
-
-
-/* =========================================================
-   FULL PAGE RULER
-========================================================= */
-
-.hero::before {
-    content:
-        "100\A 90\A 80\A 70\A 60\A 50\A 40\A 30\A 20\A 10\A 0";
-
-    white-space: pre;
-
-    position: fixed;
-
-    left: 8px;
-    top: 0;
-
-    width: 35px;
-    height: 100vh;
-
-    color: #F4C542;
-
-    font-size: 9px;
-    font-weight: 700;
-
-    line-height: 9.09vh;
-    text-align: right;
-
-    padding-right: 8px;
-
-    background: none;
-
-    border-right: 3px solid #F4C542;
-
-    opacity: 1;
-
-    pointer-events: none;
-
-    z-index: 50;
-}
-
-
-/* Ruler measurement marks */
-
-.hero::after {
-    content: "";
-
-    position: fixed;
-
-    left: 43px;
-    top: 0;
-
-    width: 10px;
-    height: 100vh;
-
-    pointer-events: none;
-
-    z-index: 51;
-
-    background:
-        repeating-linear-gradient(
-            to bottom,
-            #F4C542,
-            #F4C542 2px,
-            transparent 2px,
-            transparent 9.09vh
-        );
-
-    opacity: 1;
-}
-
-
 /* =========================================================
    HOME PAGE RULER
 ========================================================= */
@@ -1339,7 +1224,7 @@ body::after {
 
     white-space: pre;
 
-    position: fixed;
+    position: absolute;
 
     left: 8px;
     top: 0;
@@ -1373,7 +1258,7 @@ body::after {
 .home-page .top-strip::after {
     content: "";
 
-    position: fixed;
+    position: absolute;
 
     left: 43px;
     top: 0;
@@ -2054,9 +1939,16 @@ main::before {
 ========================================================= */
 
 .creator-section {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    grid-column: 1 / -1;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 2px solid var(--border-color, #ddd);
+}
+
+.creator-section p {
+    margin: 6px 0;
 }
 
 .creator-section h4 {
@@ -3366,6 +3258,248 @@ footer .footer-grid > div:last-child p:hover {
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+}
+/* ================================
+   LEGO BLUEPRINT DECORATIONS
+   ================================ */
+
+.blueprint-decor {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.75;
+}
+
+/* Keep the LEGO behind the content */
+.page-banner .container,
+.process-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Individual LEGO blocks */
+.lego-block {
+    position: absolute;
+    display: block;
+
+    width: 55px;
+    height: 28px;
+
+    background: #e6392f;
+
+    border-radius: 4px;
+
+    box-shadow:
+        inset 0 -4px 0 rgba(0, 0, 0, 0.12),
+        0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+
+/* LEGO studs */
+.lego-block::before,
+.lego-block::after {
+    content: "";
+    position: absolute;
+
+    width: 13px;
+    height: 13px;
+
+    top: -7px;
+
+    background: #e6392f;
+
+    border-radius: 50%;
+
+    box-shadow:
+        inset 0 2px 2px rgba(255, 255, 255, 0.2);
+}
+
+.lego-block::before {
+    left: 9px;
+}
+
+.lego-block::after {
+    right: 9px;
+}
+
+
+/* ================================
+   BANNER LEFT LEGO
+   ================================ */
+
+.blueprint-banner-left {
+    left: 3%;
+    top: 50%;
+    width: 100px;
+    height: 130px;
+    transform: rotate(-12deg);
+}
+
+.blueprint-banner-left .lb1 {
+    left: 0;
+    top: 0;
+}
+
+.blueprint-banner-left .lb2 {
+    left: 25px;
+    top: 35px;
+    transform: rotate(8deg);
+}
+
+.blueprint-banner-left .lb3 {
+    left: -5px;
+    top: 70px;
+    transform: rotate(-5deg);
+}
+
+.blueprint-banner-left .lb4 {
+    left: 30px;
+    top: 105px;
+    transform: rotate(10deg);
+}
+
+
+/* ================================
+   BANNER RIGHT LEGO
+   ================================ */
+
+.blueprint-banner-right {
+    right: 3%;
+    top: 30%;
+    width: 120px;
+    height: 170px;
+    transform: rotate(15deg);
+}
+
+.blueprint-banner-right .lb1 {
+    right: 0;
+    top: 0;
+}
+
+.blueprint-banner-right .lb2 {
+    right: 30px;
+    top: 35px;
+    transform: rotate(-8deg);
+}
+
+.blueprint-banner-right .lb3 {
+    right: -5px;
+    top: 70px;
+    transform: rotate(5deg);
+}
+
+.blueprint-banner-right .lb4 {
+    right: 35px;
+    top: 105px;
+    transform: rotate(-10deg);
+}
+
+.blueprint-banner-right .lb5 {
+    right: 0;
+    top: 140px;
+    transform: rotate(7deg);
+}
+
+
+/* ================================
+   PROCESS LEFT LEGO
+   ================================ */
+
+.blueprint-process-left {
+    left: 2%;
+    top: 20%;
+    width: 110px;
+    height: 150px;
+    transform: rotate(-10deg);
+}
+
+.blueprint-process-left .lb1 {
+    left: 0;
+    top: 0;
+}
+
+.blueprint-process-left .lb2 {
+    left: 30px;
+    top: 38px;
+    transform: rotate(8deg);
+}
+
+.blueprint-process-left .lb3 {
+    left: -5px;
+    top: 76px;
+    transform: rotate(-5deg);
+}
+
+.blueprint-process-left .lb4 {
+    left: 35px;
+    top: 114px;
+    transform: rotate(10deg);
+}
+
+
+/* ================================
+   PROCESS RIGHT LEGO
+   ================================ */
+
+.blueprint-process-right {
+    right: 2%;
+    top: 25%;
+    width: 120px;
+    height: 180px;
+    transform: rotate(12deg);
+}
+
+.blueprint-process-right .lb1 {
+    right: 0;
+    top: 0;
+}
+
+.blueprint-process-right .lb2 {
+    right: 35px;
+    top: 38px;
+    transform: rotate(-8deg);
+}
+
+.blueprint-process-right .lb3 {
+    right: -5px;
+    top: 76px;
+    transform: rotate(5deg);
+}
+
+.blueprint-process-right .lb4 {
+    right: 35px;
+    top: 114px;
+    transform: rotate(-10deg);
+}
+
+.blueprint-process-right .lb5 {
+    right: 0;
+    top: 152px;
+    transform: rotate(7deg);
+}
+
+
+/* ================================
+   MOBILE
+   ================================ */
+
+@media (max-width: 768px) {
+
+    .blueprint-banner-left,
+    .blueprint-process-left {
+        left: -35px;
+        transform: scale(0.7) rotate(-10deg);
+        opacity: 0.45;
+    }
+
+    .blueprint-banner-right,
+    .blueprint-process-right {
+        right: -40px;
+        transform: scale(0.7) rotate(12deg);
+        opacity: 0.45;
+    }
+
 }
 
 
